@@ -19,17 +19,6 @@ body {
     position: relative;
 }
 
-/* .login-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(255, 255, 255, .15);
-    transform: rotate(-6deg);
-    border-radius: 10px;
-    z-index: -1;
-} */
-/* ---------- */
-
 /* Login Card Logo */
 .login-card-logo {
     margin-bottom: 2rem;
