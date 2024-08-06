@@ -1,137 +1,214 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap");
-* {
-  box-sizing: border-box;
-}
+@import url("reset.css");
 
 body {
-  padding: 0;
-  margin: 0;
-  font-family: "Inter", sans-serif;
-  background: linear-gradient(45deg, #131086, #b621f3);
-  padding: 40px;
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(to right, #333399, #ff00cc);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.container {
-  min-height: calc(100vh - 80px);
-  display: grid;
-  grid-template-columns: 50% 50%;
-  border-radius: 10px;
-  overflow: hidden;
+
+/* Login Card */
+.login-card {
+    width: 450px;
+    background: rgba(255, 255, 255, .5);
+    padding: 4rem;
+    border-radius: 10px;
+    position: relative;
 }
 
-.login-left {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-left: 150px;
-  background-color: white;
+/* .login-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, .15);
+    transform: rotate(-6deg);
+    border-radius: 10px;
+    z-index: -1;
+} */
+/* ---------- */
+
+/* Login Card Logo */
+.login-card-logo {
+    margin-bottom: 2rem;
 }
 
-.login-right {
-  background-color: #eeeeee;
-  display: flex;
-  justify-content: center;
+.login-card-logo img {
+    width: 60px;
 }
-.login-right img {
-  width: 80%;
-}
+/* ---------- */
 
-.login-header {
-  margin-bottom: 50px;
-}
-.login-header h1 {
-  font-size: 40px;
-  margin-bottom: 10px;
-}
-.login-header p {
-  opacity: 0.7;
-}
-
-.login-form {
-  width: 450px;
-}
-.login-form-content {
-  display: flex;
-  flex-direction: column;
-  gap: 35px;
-}
-
-.form-item label:not(.checkboxLabel) {
-  display: inline-block;
-  background-color: white;
-  margin-bottom: 10px;
-  position: absolute;
-  padding: 0 10px;
-  transform: translate(30px, -10px);
-  font-size: 14px;
-}
-
-input[type=text],
-input[type=password],
-input[type=email] {
-  border: 1px solid black;
-  outline: none;
-  height: 55px;
-  padding: 0 2rem;
-  border-radius: 100px;
-  width: 100%;
-  transition: background 0.5s;
-  font-size: 18px;
-}
-input[type=text]:focus,
-input[type=password]:focus,
-input[type=email]:focus {
-  border-color: #131086;
-}
-
-.checkbox {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-}
-
-input[type=checkbox] {
-  width: 20px;
-  height: 20px;
-  accent-color: #131086;
-}
-
-button {
-  border: none;
-  background: linear-gradient(45deg, #131086, #b621f3);
-  color: white;
-  padding: 1rem;
-  border-radius: 100px;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 18px;
-  height: 55px;
-  cursor: pointer;
-}
-
-/* Responsive */
-@media (max-width: 1350px) {
-  .login-left {
-    padding: 50px !important;
-  }
-  .login-form {
-    width: 100%;
-  }
-}
-@media (max-width: 768px) {
-  body {
-    padding: 20px;
-  }
-  .container {
-    grid-template-columns: auto;
-  }
-  .login-right {
-    display: none;
-  }
-}
-
-.already p{
-    opacity: 0.7;
+/* Login Card Standard */
+.login-card-logo,
+.login-card-header,
+.login-card-footer {
     text-align: center;
 }
+
+.login-card a {
+    text-decoration: none;
+    color: #35339a;
+}
+
+.login-card a:hover {
+    text-decoration: underline;
+}
+/* ---------- */
+
+/* Login Card Header */
+.login-card-header {
+    margin-bottom: 2rem;
+}
+
+.login-card-header h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: .5rem;
+}
+
+.login-card-header h1+div {
+    font-size: calc(1rem * .8);
+    opacity: .8;
+}
+/* ---------- */
+
+/* Login Card Form */
+.login-card-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.login-card-form .form-item {
+    position: relative;
+}
+
+.login-card-form .form-item .form-item-icon {
+    position: absolute;
+    top: .82rem;
+    left: 1.4rem;
+    font-size: 1.3rem;
+    opacity: .4;
+}
+
+.login-card-form .checkbox {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.login-card-form .form-item-other {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(1rem * .8);
+    margin-bottom: .5rem;
+}
+/* ---------- */
+
+/* Login Card Footer */
+.login-card-footer {
+    margin-top: 1.5rem;
+    font-size: calc(1rem * .8);
+}
+/* ---------- */
+
+/* Login Card Form Elements */
+.login-card input[type="text"],
+.login-card input[type="password"],
+.login-card input[type="email"] {
+    border: none;
+    outline: none;
+    background: rgba(255, 255, 255, .3);
+    padding: 1rem 1.5rem;
+    padding-left: calc(1rem * 3.5);
+    border-radius: 100px;
+    width: 100%;
+    transition: background .5s;
+}
+
+.login-card input:focus {
+    background: white;
+}
+
+.login-card input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: black;
+}
+
+.login-card button {
+    background: black;
+    color: white;
+    padding: 1rem;
+    border-radius: 100px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: background .5s;
+}
+
+.login-card button:hover {
+    background-color: rgba(0, 0, 0, 0.85);
+    cursor: pointer;
+}
+/* ---------- */
+
+/* Login Card Social Buttons */
+.login-card-social {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.login-card-social>div {
+    opacity: .8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: calc(1rem * .8);
+}
+
+.login-card-social-btns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.login-card-social-btns a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, .6);
+    border-radius: 100px;
+    transition: all .5s;
+}
+
+.login-card-social-btns a:hover {
+    background-color: white;
+    transform: scale(1.1);
+}
+/* ---------- */
+
+
+/* Responsive */
+@media (max-width: 768px) {
+
+    body {
+        padding: 2rem 0;
+    }
+
+    .login-card {
+        width: 280px;
+        padding: 2rem;
+    }
+
+}
+/* ---------- */
