@@ -3,5 +3,5 @@
             </div>
             <div class="login-card-header">
                 <h1>Auth In</h1>
-                <div>Please login to use the platform</div>
+                <div>Please fill to use the platform</div>
             </div>

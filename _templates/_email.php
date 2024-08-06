@@ -1,5 +1,5 @@
 <div class="form-item">
     <span class="form-item-icon material-symbols-rounded">mail</span>
-    <input type="text" placeholder="Enter Email" id="emailForm" 
+    <input type="text" placeholder="Email" id="emailForm" 
         autofocus required>
     </div>

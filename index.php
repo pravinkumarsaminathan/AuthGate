@@ -12,13 +12,14 @@ include_once "libs/load.php";
         <div class="login-card">
             <?php load_templates("_logo_text"); ?>
             <form class="login-card-form">
+                <?php load_templates("_username"); ?>
                 <?php load_templates("_email"); ?>
+                <?php load_templates("_phone"); ?>
                 <?php load_templates("_password"); ?>
-                <?php load_templates("_remember"); ?>
-                <button type="submit">Sign In</button>
+                <button type="submit">Auth Up</button>
             </form>
             <div class="login-card-footer">
-                Don't have an account? <a href="index.php">Create a free account.</a>
+                Already have an account? <a href="Authin.php">Auth in</a>
             </div>
         </div>
 
