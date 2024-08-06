@@ -10,6 +10,13 @@ if (isset($_POST['username']) and isset($_POST['email']) and isset($_POST['phone
     $password = $_POST['password'];
 
     $conn = Database::getConnection();
+    $checkUserQuery = "SELECT * FROM list WHERE username='$username'";
+    $result = $conn->query($checkUserQuery);
+
+    if ($result->num_rows > 0) {
+        echo "<script>alert('Username already exits. Please choose a different username.')</script>";
+    }
+    else{
     $sql = "INSERT INTO `authup` (`username`, `email`, `phone`, `password`, `date`)
             VALUES ('$username', '$email', '$phone', '$password', now());";
     if ($conn->query($sql) === TRUE) {
@@ -18,4 +25,5 @@ if (isset($_POST['username']) and isset($_POST['email']) and isset($_POST['phone
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
+}
 }
