@@ -5,7 +5,12 @@ include_once('libs/load.php');
 $conn = Database::getConnection();
 if ($conn)
 {
-    print("connection success");
+    $sql = "SELECT * FROM `authup` WHERE `username` = 'pravin' ";
+    $count = $conn->query($sql);
+    $results = $count->fetch_assoc();
+    echo "<pre>";
+    print($results["password"]);
+    echo "</pre>";
 }
 else
 {

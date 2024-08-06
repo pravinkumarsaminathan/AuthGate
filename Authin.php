@@ -15,8 +15,8 @@ include_once "libs/load.php";
                 <h1>Auth In</h1>
                 <div>Please login to use the platform</div>
             </div>
-            <form class="login-card-form">
-                <?php load_templates("_email"); ?>
+            <form class="login-card-form" method="POST">
+                <?php load_templates("_username"); ?>
                 <?php load_templates("_password"); ?>
                 <?php load_templates("_remember"); ?>
                 <button type="submit">Sign In</button>
@@ -29,3 +29,4 @@ include_once "libs/load.php";
 </body>
 
 </html>
+<?php load_form("_Authin"); ?>
