@@ -1,5 +1,8 @@
 <?php 
 include_once "_includes/Database.Class.php";
+include_once "_includes/Sanitize.Class.php";
+include_once "_includes/Validate.Class.php";
+include_once "_includes/Hash.Class.php";
 function load_templates($name)
 {
     include $_SERVER['DOCUMENT_ROOT']."/AuthGate/_templates/$name.php";
