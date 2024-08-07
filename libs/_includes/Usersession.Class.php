@@ -4,25 +4,42 @@ class Usersession
 {
     public static function authenticate($id)
     {
+        // $conn = Database::getConnection();
+        // $ip = $_SERVER['REMOTE_ADDR'];
+        // $agent = $_SERVER['HTTP_USER_AGENT'];
+        // $token = md5(rand(0,99999999) .$ip.$agent.time());
+        // $sql = "INSERT INTO `session` (`uid`, `token`, `login_time`, `ip`, `user_agent`)
+        //         VALUES ('$id', '$token', now(), '$ip', '$agent');";
+
+        // if ($conn->query($sql))
+        // {
+        //     Session::set("session_token", $token);
+        //     Session::set("id", $id);
+        //     return $token;
+        // }
+        // else
+        // {
+        //     return false;
+        // }
         $conn = Database::getConnection();
         $ip = $_SERVER['REMOTE_ADDR'];
         $agent = $_SERVER['HTTP_USER_AGENT'];
-        $token = md5(rand(0,99999999) .$ip.$agent.time());
-        $sql = "INSERT INTO `session` (`uid`, `token`, `login_time`, `ip`, `user_agent`)
-                VALUES ('$id', '$token', now(), '$ip', '$agent');";
+        $token = md5(rand(0,99999999) . $ip . $agent . time());
 
-        if ($conn->query($sql))
-        {
+        $stmt = $conn->prepare("INSERT INTO `session` (`uid`, `token`, `login_time`, `ip`, `user_agent`) VALUES (?, ?, now(), ?, ?)");
+        if ($stmt === false) {
+            die("Prepare failed: " . htmlspecialchars($conn->error, ENT_QUOTES, 'UTF-8'));
+        }
+
+        $stmt->bind_param("isss", $id, $token, $ip, $agent);
+
+        if ($stmt->execute()) {
             Session::set("session_token", $token);
             Session::set("id", $id);
             return $token;
-        }
-        else
-        {
+        } else {
             return false;
         }
-
-
     }
 
     public static function authorice($token)
