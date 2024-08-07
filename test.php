@@ -16,3 +16,10 @@ else
 {
     print("connection error");
 }
+?>
+<form method="GET">
+            <button type="submit" name="logout">Log out</button>
+    </form>
+
+<?php
+print_r($_GET);

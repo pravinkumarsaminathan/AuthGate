@@ -30,8 +30,17 @@ class Database
         }
     }
 
-    // public function __destruct()
-    // {
-    //     $conn->close();
-    // }
+    public static function closeConnection()
+    {
+        if (Database::$conn != NULL)
+        {
+            Database::$conn->close();
+            Database::$conn = NULL;
+        }
+    }
+
+    public function __destruct()
+    {
+        self::closeConnection();
+    }
 }

@@ -1,5 +1,5 @@
 <?php
-
+ob_start();
 class Usersession
 {
     public static function authenticate($id)
@@ -42,7 +42,9 @@ class Usersession
                     return true;
                 }
                 else
-                    print("authorice is unsucessful");
+                    echo "<script>alert('Session ended,try to login')</script>";
+                    header("Location: http://127.0.0.1:8000/AuthGate/Authin.php");
+                    exit;
             }
             else
             {
@@ -55,5 +57,16 @@ class Usersession
         }   
     }
 
-    // public static function logout($user_id)
+    public static function logout()
+    {
+        $del_id = $_SESSION['id'];
+        $conn = Database::getConnection();
+        $sql = "DELETE FROM `session`
+                WHERE ((`uid` = '$del_id'));";
+        $conn->query($sql);
+        Session::destroy();
+        header("Location: http://127.0.0.1:8000/AuthGate/Authin.php");
+        exit;        
+    }
 }
+ob_end_flush();

@@ -1,5 +1,5 @@
 <?php
-
+ob_start();
 include_once ("libs/load.php");
 
 if (isset($_POST['username']) and isset($_POST['password'])) {
@@ -22,8 +22,12 @@ if (isset($_POST['username']) and isset($_POST['password'])) {
                 header("Location: http://127.0.0.1:8000/AuthGate/note.php");
                 exit;
             }
+            else {
+                Session::destroy();
+            }
         } else {
             echo "Username or Password incorrect";
         }
     }
 }
+ob_end_flush();
