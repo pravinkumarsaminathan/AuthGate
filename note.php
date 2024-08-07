@@ -1,4 +1,8 @@
-<?php include_once("libs/load.php"); ?>
+<?php include_once("libs/load.php"); 
+if (isset($_SESSION['session_token']))
+{
+    if (Usersession::authorice($_SESSION['session_token'])){
+        ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,3 +16,12 @@
     </div>
 </body>
 </html>
+<?php
+}
+else
+{
+    header("Location: http://127.0.0.1:8000/AuthGate/Authin.php");
+    exit;
+}
+}
+?>

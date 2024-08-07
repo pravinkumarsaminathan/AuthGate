@@ -9,7 +9,7 @@ if ($conn)
     $count = $conn->query($sql);
     $results = $count->fetch_assoc();
     echo "<pre>";
-    print($results["password"]);
+    print($results["id"]);
     echo "</pre>";
 }
 else
