@@ -5,22 +5,7 @@ if (isset($_SESSION['session_token']))
 {
     if (Usersession::authorice($_SESSION['session_token'])){
         ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <?php load_templates("_head"); ?>
-</head>
-<body>
-    <div class="welcome-container">
-        <h1>Welcome!</h1>
-        <p>We're glad to have you here. Click the button below to get started from first.</p>
-        <a href="#">Get Started</a>
-    </div>
-    <form method="GET">
-            <button type="submit" name="logout">Log out</button>
-    </form>
-</body>
-</html>
+    <?php load_templates("_note"); ?>
 <?php
 }
 }

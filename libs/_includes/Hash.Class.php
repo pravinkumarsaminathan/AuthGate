@@ -21,6 +21,7 @@ class Hash
         $results = $count->fetch_assoc();
         if ($results) {
             if (password_verify($password, $results["password"])) {
+                Session::set("username", $results["username"]);
                 return $results['id'];
             } else {
                 return false;

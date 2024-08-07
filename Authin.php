@@ -18,7 +18,6 @@ include_once "libs/load.php";
             <form class="login-card-form" method="POST">
                 <?php load_templates("_username"); ?>
                 <?php load_templates("_password"); ?>
-                <?php load_templates("_remember"); ?>
                 <button type="submit">Sign In</button>
             </form>
             <div class="login-card-footer">
