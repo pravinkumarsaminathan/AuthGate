@@ -43,7 +43,7 @@ class Validate
         }
         
         if (!Validate::password($password)) {
-            $errors[] = "Invalid password.";
+            $errors[] = "Invalid password.altleast(1-uppercase,1-no,1-special char)";
         }
 
         if (empty($errors)) {
@@ -65,7 +65,7 @@ class Validate
         }
 
         if (!Validate::password($password)) {
-            $error[] = "Invalid password.";
+            $error[] = "Invalid password.altleast(1-uppercase,1-no,1-special char)";
         }
 
         if (empty($error)) {
